@@ -27,7 +27,6 @@ RUN chmod 0644 /etc/cron.d/tt-cron &&\
     touch /var/log/cron.log &&\
     sed -i "s/#cron.*/cron.*/g" /etc/rsyslog.d/50-default.conf
 
-EXPOSE 22
 
 CMD ["/usr/bin/supervisord"]
 
