@@ -7,7 +7,6 @@
 
 ```
 docker run -itd \
-  -p 6622:22 \
   --name ttcollect\
   --restart=always \
   stivw/ttnode
