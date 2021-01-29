@@ -1,6 +1,7 @@
 # 甜糖星（ttnode）愿自动收取/Docker快速部署
 
-
+此容器中脚本使用的是：[744287383/AutomationTTnode](https://github.com/744287383/AutomationTTnode)
+脚本使用方法参考此库
 # 1.容器部署
 
 
