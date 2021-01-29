@@ -1,0 +1,5 @@
+3 2 * * * python3 /AutomationTTnode/sendTTnodeMSG.py
+3 3 * * * python3 /AutomationTTnode/sendTTnodeMSG.py
+* * * * * date >> /root/date.txt
+0 0 * * * echo '' > /root/date.txt 
+
