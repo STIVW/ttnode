@@ -4,11 +4,7 @@ MAINTAINER stivw <869862584@qq.com>
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN apt update && \
-    apt-get install -y  cron vim supervisor  rsyslog
-
-RUN apt install python3 -y &&\
-    apt install python3-pip -y &&\
-    apt install git -y &&\
+    apt-get install -y  cron vim supervisor rsyslog python3 python3-pip git &&\
     git clone https://github.com/744287383/AutomationTTnode.git
 
 RUN export DEBIAN_FRONTEND=noninteractive \
