@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu
 MAINTAINER stivw <869862584@qq.com>
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
