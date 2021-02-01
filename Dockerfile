@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:18.04
 MAINTAINER stivw <869862584@qq.com>
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
@@ -18,8 +18,8 @@ RUN apt update && \
 RUN export DEBIAN_FRONTEND=noninteractive \
     && ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && dpkg-reconfigure --frontend noninteractive tzdata \
-    apt-get clean && \
-    apt-get purge -y --auto-remove
+    && apt-get clean \
+    && apt-get purge -y --auto-remove
 	
 
 EXPOSE 22
