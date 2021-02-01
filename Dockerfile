@@ -4,6 +4,12 @@ MAINTAINER stivw <869862584@qq.com>
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY tt-cron /etc/cron.d/tt-cron
 
+RUN export DEBIAN_FRONTEND=noninteractive \
+    && apt-get update \
+    && apt-get install -y tzdata \
+    && ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && dpkg-reconfigure --frontend noninteractive tzdata
+
 RUN apt update && \
     apt install	-y openssh-server  python3  python3-pip git cron vim supervisor rsyslog && \
     echo "root:123456" | chpasswd && \
@@ -13,15 +19,10 @@ RUN apt update && \
     sed -i "s/#cron.*/cron.*/g" /etc/rsyslog.d/50-default.conf  && \
     chmod 0644 /etc/cron.d/tt-cron && \
     crontab /etc/cron.d/tt-cron && \
-    touch /var/log/cron.log
+    touch /var/log/cron.log && \
+    apt-get clean && \
+    apt-get purge -y --auto-remove
 
-
-RUN export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install -y tzdata \
-    && ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && dpkg-reconfigure --frontend noninteractive tzdata \
-    && apt-get clean \
-    && apt-get purge -y --auto-remove
 	
 
 EXPOSE 22
