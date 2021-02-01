@@ -5,7 +5,7 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY tt-cron /etc/cron.d/tt-cron
 
 RUN apt update && \
-    apt install	-y openssh-server  python3  python3-pip git tzdata cron vim supervisor rsyslog && \
+    apt install	-y openssh-server  python3  python3-pip git cron vim supervisor rsyslog && \
     echo "root:123456" | chpasswd && \
     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config && \
     mkdir -p /var/run/sshd && \
@@ -15,7 +15,9 @@ RUN apt update && \
     crontab /etc/cron.d/tt-cron && \
     touch /var/log/cron.log
 
+
 RUN export DEBIAN_FRONTEND=noninteractive \
+    && apt-get install -y tzdata \
     && ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && dpkg-reconfigure --frontend noninteractive tzdata \
     && apt-get clean \
