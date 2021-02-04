@@ -19,6 +19,7 @@ RUN apt update && \
     mkdir -p /usr/node &&\
     cd /usr/node &&\
     wget https://cdn.jsdelivr.net/gh/ericwang2006/docker_ttnode/build_dir/ttnode_task.sh &&\
+    chmod 777 /usr/node/ttnode_task.sh &&\
     apt-get clean && \
     apt-get purge -y --auto-remove
 
