@@ -1,7 +1,7 @@
 # 甜糖（ttnode）星愿自动收取/Docker快速部署
 
 此容器中脚本使用的是：SHELL脚本参考了yjce1314大神的[代码](https://www.right.com.cn/forum/thread-4065542-1-1.html)
-脚本使用方法参考此库
+
 # 1.容器部署
 
 
