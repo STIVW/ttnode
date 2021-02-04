@@ -22,7 +22,7 @@ docker exec -it ttcollect bash
 ## 3.配置脚本：
 
 ```
-python3 /AutomationTTnode/ttnodeConfig.py
+/usr/node/ttnode_task.sh login
 ```
 
 ## 修改运行时间：
@@ -32,7 +32,7 @@ crontab -e
 ```
 
 ```
-3   2 * * * python3 /AutomationTTnode/sendTTnodeMSG.py   #每天两点三分运行自行修改
+8   3 * * *  /usr/node/ttnode_task.sh report  #每天三点八分运行-自行修改
 ↑   ↑
 分  时
 ```
