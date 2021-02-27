@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM arm64v8/ubuntu
 MAINTAINER stivw <869862584@qq.com>
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
